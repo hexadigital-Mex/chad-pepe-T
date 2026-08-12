@@ -39,7 +39,8 @@ Estado final del proyecto, separado en capas:
 - **Auto-scroll inteligente**: `<div>` ancla con `useRef`, `scrollIntoView({ behavior: 'smooth' })`, y solo si el usuario estaba al fondo (`scrollTop + clientHeight >= scrollHeight - 50`).
 - **Burbujas por role**: `message-user` (derecha) vs `message-assistant` (izquierda).
 - **Formatting markdown** (`react-markdown` + `remark-gfm` + `remark-breaks`): párrafos, listas, tablas y **bloques de código encapsulados** con etiqueta de lenguaje (`.code-block`).
-- **Pantalla de bienvenida** estilo ChatGPT: saludo con nombre (del Context), subtítulo y sugerencias que envían el mensaje al hacer clic.
+- **Pantalla de bienvenida** estilo ChatGPT: saludo con nombre (del Context), subtítulo y sugerencias **genéricas** (explicar conceptos, redactar correos, ideas, resumir textos) que envían el mensaje al hacer clic.
+- **Header limpio**: se eliminó el botón/etiqueta de "Invitado" (sin función). El cambio de tema es ahora un **switch sol/luna** con knob deslizante: icono de sol con degradado naranja llamativo en tema claro y luna con degradado violeta/índigo en tema oscuro.
 
 ## 5. Despliegue en Vercel
 
