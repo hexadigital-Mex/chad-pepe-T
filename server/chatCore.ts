@@ -40,10 +40,6 @@ function errorMessage(err: unknown): string {
 }
 
 export function createChatHandler(config: ChatConfig) {
-  const openai = new OpenAI({
-    apiKey: config.apiKey,
-    ...(config.baseURL ? { baseURL: config.baseURL } : {}),
-  })
   const encoder = new TextEncoder()
 
   return async function chatHandler(
@@ -51,6 +47,22 @@ export function createChatHandler(config: ChatConfig) {
     res: ServerResponse,
   ): Promise<void> {
     try {
+      if (!config.apiKey) {
+        res.writeHead(500, { 'Content-Type': 'application/json' })
+        res.end(
+          JSON.stringify({
+            error:
+              'Falta configurar OPENAI_API_KEY (u OPENROUTER_API_KEY) en las variables de entorno',
+          }),
+        )
+        return
+      }
+
+      const openai = new OpenAI({
+        apiKey: config.apiKey,
+        ...(config.baseURL ? { baseURL: config.baseURL } : {}),
+      })
+
       if (req.method !== 'POST') {
         res.writeHead(405, { 'Content-Type': 'application/json' })
         res.end(JSON.stringify({ error: 'Método no permitido' }))
