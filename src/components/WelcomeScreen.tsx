@@ -2,10 +2,10 @@ import { useChatStore } from '../store/chatStore'
 import { useSettings } from '../context/settings'
 
 const SUGGESTIONS = [
-  'Explica cómo funciona React en 3 puntos',
-  'Escribe una función de orden superior en JavaScript',
-  '¿Cuál es la diferencia entre Context API y Zustand?',
-  'Dame ideas para practicar TypeScript',
+  'Explícame un concepto como si tuviera 10 años',
+  'Ayúdame a redactar un correo profesional',
+  'Dame ideas para resolver un problema',
+  'Resume las ideas clave de un texto que te pase',
 ]
 
 function WelcomeScreen() {
