@@ -5,7 +5,7 @@ import type { Theme, User } from './settings'
 
 export function SettingsProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
-  const [theme, setTheme] = useState<Theme>('light')
+  const [theme, setTheme] = useState<Theme>('dark')
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme

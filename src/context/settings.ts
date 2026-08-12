@@ -15,7 +15,7 @@ export interface SettingsContextValue {
 
 export const SettingsContext = createContext<SettingsContextValue>({
   user: null,
-  theme: 'light',
+  theme: 'dark',
   setUser: () => {},
   toggleTheme: () => {},
 })

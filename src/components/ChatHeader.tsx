@@ -37,13 +37,43 @@ function MoonIcon() {
   )
 }
 
+function Logo() {
+  return (
+    <span className="chat-logo-badge" role="img" aria-label="Chad Pepe T">
+      <span className="chat-logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <g
+            className="frog-glow"
+            stroke="var(--logo-color)"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <ellipse cx="8" cy="7" rx="3.4" ry="3.8" />
+            <ellipse cx="16" cy="7" rx="3.4" ry="3.8" />
+            <circle cx="8" cy="6.8" r="1.3" fill="var(--logo-color)" stroke="none" />
+            <circle cx="16" cy="6.8" r="1.3" fill="var(--logo-color)" stroke="none" />
+            <path d="M4 10.8C4 16.5 7.5 20 12 20s8-3.5 8-9.2" />
+            <path d="M6 13.4h1.6M16.4 13.4H18" />
+            <path d="M9.5 16.2c1.7 1.2 3.3 1.2 5 0" />
+          </g>
+        </svg>
+      </span>
+      <span className="chat-logo-name">Chad Pepe T</span>
+      <span className="chat-logo-online" aria-hidden="true" />
+    </span>
+  )
+}
+
 function ChatHeader() {
   const { theme, toggleTheme } = useSettings()
   const isDark = theme === 'dark'
 
   return (
     <header className="chat-header">
-      <h2>Chat</h2>
+      <h2 className="chat-header-title">
+        <Logo />
+      </h2>
       <div className="chat-header-actions">
         <button
           className={isDark ? 'theme-switch dark' : 'theme-switch'}
