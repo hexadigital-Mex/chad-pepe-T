@@ -1,6 +1,8 @@
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'
+import rehypeRaw from 'rehype-raw'
+import rehypeSanitize from 'rehype-sanitize'
 import type { ReactElement } from 'react'
 
 interface MarkdownTextProps {
@@ -12,6 +14,7 @@ function MarkdownText({ text }: MarkdownTextProps) {
     <div className="markdown-body">
       <Markdown
         remarkPlugins={[remarkGfm, remarkBreaks]}
+        rehypePlugins={[rehypeRaw, rehypeSanitize]}
         components={{
           pre: ({ children }) => {
             const element = children as ReactElement<{ className?: string }>

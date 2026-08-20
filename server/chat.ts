@@ -1,10 +1,6 @@
 import { loadEnv } from 'vite'
-import { createChatHandler } from './chatCore'
+import { createChatHandler, resolveChatConfig } from './chatCore.ts'
 
-const env: Record<string, string> = loadEnv('development', process.cwd(), '')
+const env = loadEnv('development', process.cwd(), '')
 
-export const chatHandler = createChatHandler({
-  apiKey: env.OPENAI_API_KEY ?? env.OPENROUTER_API_KEY,
-  baseURL: env.OPENAI_BASE_URL,
-  model: env.OPENAI_MODEL ?? 'gpt-4o-mini',
-})
+export const chatHandler = createChatHandler(resolveChatConfig(env))
